@@ -1,127 +1,146 @@
-/* General Styling */
-body {
-    font-family: Arial, sans-serif;
+:root {
+    --pink: #e84393;
+    --dark-bg: #0f0f14;
+    --card-bg: #1c1c24;
+    --text-light: #f1f1f1;
+    --text-muted: #b3b3b3;
+}
+
+* {
     margin: 0;
     padding: 0;
-    background-image: url('background.jpg'); /* Replace with the actual image path */
-    background-size: cover; /* Ensures the image covers the entire screen */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-attachment: fixed; /* Keeps the background fixed when scrolling */
-    background-color: #f4f4f4; /* Fallback background color */
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: .25s ease;
 }
 
-/* Contact Container */
-.contact-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    border-radius: 10px;
-    text-align: center;
+html {
+    font-size: 62.5%;
 }
 
-/* Header Styling */
-.contact-container h2 {
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
-}
-
-/* Home Icon Styling */
-.home-icon {
-    display: inline-flex;
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0f14, #1a1a2e);
+    display: flex;
     align-items: center;
-    font-size: 1.2rem;
-    color: #333;
+    justify-content: center;
+    color: var(--text-light);
+}
+
+/* ================= CONTACT CARD ================= */
+.contact-container {
+    background: var(--card-bg);
+    padding: 4rem 5rem;
+    border-radius: 2rem;
+    width: 100%;
+    max-width: 45rem;
+    box-shadow: 0 1.5rem 3rem rgba(0,0,0,.7);
+    text-align: center;
+}
+
+/* ================= TITLE ================= */
+.contact-container h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-container h2::after {
+    content: '';
+    width: 6rem;
+    height: .3rem;
+    background: var(--pink);
+    display: block;
+    margin: 1rem auto 0;
+}
+
+/* ================= HOME LINK ================= */
+.home-icon {
+    display: inline-block;
+    margin: 1.5rem 0 3rem;
+    font-size: 1.6rem;
+    color: var(--text-muted);
     text-decoration: none;
-    margin-bottom: 20px;
 }
 
 .home-icon i {
-    margin-right: 10px;
-    font-size: 1.5rem;
+    margin-right: .5rem;
 }
 
 .home-icon:hover {
-    color: #007BFF; /* Color changes on hover */
+    color: var(--pink);
 }
 
-/* Contact Form Styling */
+/* ================= FORM ================= */
 .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    text-align: left;
 }
 
 .contact-form label {
-    font-weight: bold;
-    color: #555;
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: .5rem;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
     width: 100%;
+    padding: 1.2rem;
+    margin-bottom: 2rem;
+    border-radius: .8rem;
+    background: #101018;
+    color: var(--text-light);
+    border: 1px solid #2a2a38;
+    font-size: 1.4rem;
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"] {
-    height: 40px;
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--pink);
+    outline: none;
 }
 
-.contact-form textarea {
-    resize: vertical;
-}
-
+/* ================= BUTTONS ================= */
 .form-buttons {
     display: flex;
-    justify-content: space-between;
+    gap: 1.5rem;
 }
 
 .submit-btn,
 .reset-btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 4px;
+    flex: 1;
+    padding: 1.2rem;
+    font-size: 1.5rem;
+    border-radius: 5rem;
     cursor: pointer;
+    border: none;
 }
 
 .submit-btn {
-    background-color: #4CAF50;
-    color: white;
+    background: linear-gradient(135deg, #ff5aa5, #e84393);
+    color: #fff;
 }
 
 .submit-btn:hover {
-    background-color: #45a049;
+    box-shadow: 0 0 20px rgba(232,67,147,.6);
 }
 
 .reset-btn {
-    background-color: #f44336;
-    color: white;
+    background: #2a2a38;
+    color: var(--text-light);
 }
 
 .reset-btn:hover {
-    background-color: #e53935;
+    background: #3a3a50;
 }
 
-/* Responsive Styling */
-@media (max-width: 600px) {
+/* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
+    html {
+        font-size: 55%;
+    }
+
     .contact-container {
-        padding: 15px;
-    }
-
-    .form-buttons {
-        flex-direction: column;
-    }
-
-    .submit-btn,
-    .reset-btn {
-        width: 100%;
-        margin-top: 10px;
+        padding: 3rem 2.5rem;
     }
 }
